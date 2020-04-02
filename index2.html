@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ingreso de usuario</title>
+    <script type ="text/javascript">
+        window.onload=function()
+        {
+            var enviar=document.getElementById("btnEnviar");
+            var usuario= document.getElementById("txtUsuario"); 
+            var contraseña =document.getElementById("txtPassword");
+            enviar.onclick = function()
+            {
+                
+                if((usuario.value == 'Carolina' || usuario.value == 'carolina')  && (contraseña.value==123))
+                {
+                    alert("Bienvenido " + usuario.value);
+                 /*   if(contraseña.value==123)
+                    {
+                        //alert("Ingreso Correcto!!" + "\n" + "Usuario: " + usuario.value + "\n" + "Contraseña: " + contraseña.value);        
+                        alert("Bienvenido " + usuario.value); //COMO SACAS EL THIS PAGE SAYS??
+                    }
+                    else
+                    {
+                        alert("Contraseña invalida")
+                    } */                           
+                }
+                else
+                {
+                    alert("Usuario o contraserña invalido");       
+                }                
+            }
+            var limpiar= document.getElementById("btnLimpiar");
+            limpiar.onclick=function()
+            {
+                contraseña.value="";
+                usuario.value="";
+            }
+        }
+
+    </script>
+</head>
+<body>
+    Usuario:
+    <br>
+    <input type = "combobox" name ="as2" id="txtUsuario"> 
+    <br>
+    Contraseña:
+    <br>
+    <input type = "password"  name ="asd3" id="txtPassword" >
+    <br>
+    <input type = "checkbox" value="1" name ="as2"> Recordar usar y contraseña.
+    <br>
+    <input type = "button"  id= "btnEnviar" value="Enviar">
+    <input type = "button"  name="btnLimpiar" id= "btnLimpiar" value="Limpiar">
+
+
+
+</body>
+</html>
