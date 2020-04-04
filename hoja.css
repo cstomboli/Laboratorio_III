@@ -1,0 +1,24 @@
+p,input{
+    color: red;
+    font-size: 6pt;
+}
+p.negrita {
+    font-weight: bold;
+}
+
+.button    {
+    background-color: darkcyan;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin:4px 2px;
+    text-align: center;
+    font-size:16px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.red{
+    color: red;
+}
