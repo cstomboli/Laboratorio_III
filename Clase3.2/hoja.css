@@ -1,0 +1,30 @@
+#contenedor{ /*¿Es de tipo inblock?*/
+    width: 50%; /*Ancho*/ 
+    border-radius: 5px; /* Bordes del cuadro redondo */
+    background-color: #b33e3e; /*Le pongo un color de fondo*/
+    padding: 20px; /*El componente crece para dentro*/
+}
+/*
+con . a la clase
+con # al id
+un div ocupa el 100% de la pantalla
+margin auto: lo centra en la pantalla.
+margin: 20px auto; 1ero es de arriba y de abajo, el 2do de derecha a izquierda.
+//Estos 3 siguientes tienen q estar siempre!
+box-sizing: border-box; box-sizing es por defecto y border box 
+ hace q se consuma para adentro y no para afuera por defecto.
+-moz.box-sizing: border box; Para versiones de Mozila viejas.
+-webkit-box-sizing: border box; Para versiones de chrome viejas.
+
+//Posicionamiento:
+position: static; Permite mover un elemento. static valor por defecto.
+top: -10px;  Mueve el elemento para arriba o abajo de otro. Los dos elementos tienen que 
+tener positivion: relative. 
+*/
+input[type=text]{
+    width:100%;
+    padding: 12px 20px;
+    margin:8px;
+    box-sizing: border-box; /*Crecio demasiado con los 2 de arriba, lo acomoda*/
+    border: solid 1px #dddddd;
+}

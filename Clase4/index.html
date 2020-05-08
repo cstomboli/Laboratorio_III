@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <metan http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        var http = new XMLHttpRequest();
+        http.onreadystatechange=function(){
+            console.log("Llego respuesta",http.readyState);
+            if(http.readyState===4)
+            {
+                if( http.status===200)
+                {
+                    console.log("tengo respuesta");
+                    document.write(http.responseText);
+                }
+                else{
+                    console.log("error");
+                }
+            }
+        }    
+        http.open("_GET", "http://localhost:3000/loginUsuario?usr="+document.getElementById().value+"&pass=123", true);
+        http.send();
+        console.log("Termino llamada");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

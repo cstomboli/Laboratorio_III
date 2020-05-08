@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 3.2</title>
+    <script type= "text/javascript" src="funciones.js"></script>
+    <link rel="stylesheet" href="hoja.css"/> 
+</head>
+<body>
+    <div id="contenedor">
+        <label for="txtNombre">Nombre </label> 
+        <br>
+        <input type="text" name="nombre" id="txtNombre" class="recuadro" placeholder="Nombre"> 
+        <br>
+        <label for="txtApellido">Apellido</label>
+        <br>
+        <input type="text" name="apellido" id="txtApellido" class="recuadro" placeholder="Apellido"> 
+        <br>   
+        <input type="button" value="Guardar" onclick="agregar();"> 
+    </div>  
+    <label id="txtLista"> Lista de Personas</label>
+    <br>
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Luis</td>
+                <td>Rodrigez</td>
+                <td> <a href= "">borrar</a> </td>
+            </tr>
+            <tr>
+                <td>Bianca</td>
+                <td>Gentineta</td>
+                <td> <a href= "">borrar</a> </td>
+            </tr>
+            <tr>
+                <td>Lucrecia</td>
+                <td>Pandolfi</td>
+                <td> <a href= "">borrar</a> </td>
+            </tr>
+            <tr>
+                <td>Guillermo</td>
+                <td>Raboni</td>
+                <td> <a href= "">borrar</a> </td>
+            </tr>
+            <tr>
+                <td>Guillermo</td>
+                <td>Raboni</td>
+                <td> <a href= "">borrar</a> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</body>
+</html>

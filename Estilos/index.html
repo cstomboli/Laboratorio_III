@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 3.2</title>
+    <script type= "text/javascript" src="funciones.js"></script>
+    <link rel="stylesheet" href="hoja.css"/> 
+</head>
+<body>
+    <div id="contenedor">
+        <label for="txtNombre">Nombre </label> 
+        <br>
+        <input type="text" name="nombre" id="txtNombre" class="recuadro" placeholder="Nombre"> 
+        <br>
+        <label for="txtApellido">Apellido</label>
+        <br>
+        <input type="text" name="apellido" id="txtApellido" class="recuadro" placeholder="Apellido"> 
+        <br>   
+        <input type="button" value="Guardar" onclick="agregar();"> 
+    </div>
+    <div class="fixed">
+        Este esta anclado
+    </div>
+    <div class="relativePadre">
+        Este elemento esta usando position: relative. 
+        <div class="relativeHijo">
+            Este elemento tiene position: absolute.
+        </div>
+    </div>   
+     
+
+    
+</body>
+</html>
