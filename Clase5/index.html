@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <metan http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+        var array = ["matias", "juan"];
+        var array =[{},{}]; //array del tipo json
+        var array2 = [{"nombre": "tita", "edad": 30}, {"nombre": "Carolina", "edad": 31}];
+        var array3 = '[{"nombre": "tita", "edad": 30}, {"nombre": "Carolina", "edad": 31}]'; //este es string
+        var persona={"nombre": "Carolina", "edad": 31};
+        var persona= persona["edad"];
+        var objJson = JSON.parse(array3);
+        //alert(JSON.stringify(array3));
+       // alert(objJson);
+        /*
+        for( var i=0; i<array2.length; i++)
+        {
+            console.log(array2[i].nombre);
+        }*/
+
+        var http = new XMLHttpRequest;
+        window.onload= function(){
+            http.onreadystatechange= callback;
+            http.open("GET", "http://localhost:3000/personas", true);
+            http.send();
+        }
+        function callback(){
+            alert("llego");
+            if(http.readyState===4)
+            {
+                if( http.status===200)
+                {
+                    armarGrilla(JSON.pase(http.responseText));
+                }
+                else{
+                    console.log("error");
+                }
+            }
+        } 
+        function armarGrilla(jsonObj){
+            for (var i=0; i<jsonObj.length; i++) //no va a tomar el length
+            {
+                console.log(jsonObj[i].nombre);
+            }
+        }
+    </script>
+</head>
+
+
+<body>
+
+        <form action="login.php" method="GET">
+            Usuario:
+            <br>
+            <input type = "combobox" name ="as2" id="txtUsuario"> 
+            <br>
+            Contraseña:
+            <br>
+            <input type = "password"  name ="asd3" id="txtPassword" >
+            <br>
+            <input type = "checkbox" value="1" name ="as2"> Recordar usar y contraseña.
+            <br>
+            <input type = "button"  id= "btnEnviar" value="Enviar">
+            <input type = "reset"  name="btnLimpiar" id= "btnLimpiar" value="Limpiar">
+        </form>
+    
+</body>
+</html>
