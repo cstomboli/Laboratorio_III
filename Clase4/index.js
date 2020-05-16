@@ -16,8 +16,8 @@ app.get("/login",function(req,res){
 app.get("/loginUsuario",function(req,res){
     console.log(req.query);
     if(req.query.usr!=undefined && req.query.pass!=undefined){
-        if(req.query.usr==="usuario"&&req.query.pass==="1234") 
-            res.send(true);    // si pongo http://localhost:3000/loginUsuario?usr=usuario&pass=1234
+        if(req.query.usr==="usuario"&&req.query.pass==="1234")
+            res.send("true");    
         else
             res.send("false");
         return;

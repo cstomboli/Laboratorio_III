@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        var http = new XMLHttpRequest();
+		
+		
+        function login(){
+        http.onreadystatechange = function(){
+            /*console.log("llego respuesta",http.readyState,http.status,http.responseText);*/
+            if(http.readyState===4){
+                if(http.status===200){
+                    console.log("Tenemos un 200")
+
+                    document.write(http.responseText);
+                }else{
+                    console.log("Tenemos un error!!");  
+                }
+            }
+        }
+ 
+        http.open("GET","http://localhost:3000/loginUsuario?usr="+document.getElementById("usr").value+"&pass="+document.getElementById("pass").value,true);
+        http.send();
+        console.log("termino llamada")
+    }
+
+
+window.onload=function(){
+    document.getElementById("btn").addEventListener("click",login);
+}
+
+    </script>
+</head>
+<body>
+    usuario <input id="usr"> <br>
+    password <input id="pass"><br>
+    <input type="button" value="enviar" id="btn">
+    
+</body>
+</html>

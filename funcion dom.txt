@@ -1,0 +1,19 @@
+ function llenargrilla(per){
+            var tCuerpo = document.getElementById("tCuerpo");
+    
+            var personas = JSON.parse(per);
+            var gri= "";
+    
+            for (var i=0; i<personas.length;i++){
+                var tr=document.createElement("tr");
+                var td=document.createElement("td");
+                var nodoTexto = document.createTextNode();
+                //hacer esa fila columna, mas linda con DOM
+                gri= gri+"<tr><td>"+personas[i].nombre+"</td>"+
+                    "<td>"+personas[i].apellido+"</td>"
+                    "<td>"+personas[i].telefono+"</td>"
+                    "<td>"+personas[i].fecha+"</td>"
+                    "<td><a href=''>borrar</a></td>";
+            }
+            
+        }

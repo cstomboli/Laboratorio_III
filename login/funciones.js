@@ -1,9 +1,9 @@
 window.onload=function()
 {
-    var enviar=document.getElementById("btnEnviar");
+    var enviar= document.getElementById("btnEnviar");
     var usuario= document.getElementById("txtUsuario"); 
     var contraseña =document.getElementById("txtPassword");
-    enviar.onclick = function()
+    enviar.onclick=function()
     {      
         alert("inco");
           

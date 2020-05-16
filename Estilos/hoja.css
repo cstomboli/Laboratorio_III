@@ -21,6 +21,10 @@ position: static; Permite mover un elemento. static valor por defecto.
 top: -10px;  Mueve el elemento para arriba o abajo de otro. Los dos elementos tienen que 
 tener positivion: relative. 
 */
+
+/* flex-wrap: wrap; esta propiedad hace q no aparezca la barra al achicar la pantalla
+acomoda los divs, poniendo uno debajo del otro. Si no por defecto, achica los elementos.
+ flex-grow: 0; esta seteado en 0 por defecto sobre el item, el resto sobre el contenedor.*/
 input[type=text]{
     width:100%;
     padding: 12px 20px;

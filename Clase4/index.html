@@ -6,28 +6,26 @@
     <metan http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script type="text/javascript">
-        var http = new XMLHttpRequest();
-        http.onreadystatechange=function(){
-            console.log("Llego respuesta",http.readyState);
-            if(http.readyState===4)
-            {
-                if( http.status===200)
-                {
-                    console.log("tengo respuesta");
-                    document.write(http.responseText);
-                }
-                else{
-                    console.log("error");
-                }
+        /* var http = new XMLHttpRequest(); */
+        window.onload= function(){
+            var btn = document.getElementById("btnEnviar");
+            btn.onclick= function(){
+                var inputUser = document.getElementById("user").value;
+                var inputPassword = document.getElementById("password").value;
             }
-        }    
-        http.open("_GET", "http://localhost:3000/loginUsuario?usr="+document.getElementById().value+"&pass=123", true);
-        http.send();
-        console.log("Termino llamada");
+        }
+        
 
     </script>
 </head>
 <body>
-    
+        Usuario: <br>
+        <input type="text" class="cuadroTexto" value="" name="usr" id="user">
+        <br> Contraseña: <br>
+        <input type="password" class="cuadroTexto" value="" name="usr" id="password">
+        <input type="chekbox"> Recordar user y password <br>
+        <input type="button" class="botones" value="Enviar" id="btnEnviar">
+        <input type="reset" class="botones" value="Limpiar" id="btnLimpiar">
+     
 </body>
 </html>

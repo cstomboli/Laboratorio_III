@@ -1,0 +1,45 @@
+    <script type= "text/javascript">
+              
+        var http = new XMLHttpRequest; 
+
+              window.onload = function(){
+                var btn = document.getElementById("btnEnviar");
+                btn.onclick = function(){
+                    var inputUser = document.getElementById("user").value;
+                    var inputPassword = document.getElementById("password").value;
+
+                    http.onreadystatechange = callback;
+                    http.open("GET", "http://localhost:3000/loginUsuario?usr="+inputUser+"&pass="+inputPassword,true);
+                    /*  Si fuera post
+                    http.open("POST", "http://localhost:3000/loginUsuario",true);
+                    http.send("usr="+inputUser+"&pass="+inputPassword);
+                    */
+                    http.send();
+                }
+            }
+        function callback(){
+            if(http.readyState == 4 && http.status==200){
+                console.log(http.responseText);
+            }
+        }
+            
+    
+        </script>
+</head>
+
+
+
+
+<body>
+            Usuario: <br>
+            <input type="text" class="cuadroTexto" value="" name="usr" id="user">
+            <br>
+            Contraseña: <br>
+            <input type="password" class="cuadroTexto" value="" name="usr" id="password">
+            <br>
+            <input type="checkbox"> Recordar user y password 
+            <br>
+            <input type="button" class="botones" value="Enviar" id="btnEnviar">
+            <input type="reset" class="botones" value="Limpiar" id="btnLimpiar">
+         
+</body>

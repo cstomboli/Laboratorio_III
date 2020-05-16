@@ -22,19 +22,19 @@
             console.log(array2[i].nombre);
         }*/
 
-        var http = new XMLHttpRequest;
+        var http = new XMLHttpRequest();
         window.onload= function(){
             http.onreadystatechange= callback;
             http.open("GET", "http://localhost:3000/personas", true);
             http.send();
         }
         function callback(){
-            alert("llego");
+            //alert("llego");
             if(http.readyState===4)
             {
                 if( http.status===200)
                 {
-                    armarGrilla(JSON.pase(http.responseText));
+                    armarGrilla(JSON.parse(http.responseText));
                 }
                 else{
                     console.log("error");
@@ -42,9 +42,12 @@
             }
         } 
         function armarGrilla(jsonObj){
+            var tbody=document.getElementById("body");
             for (var i=0; i<jsonObj.length; i++) //no va a tomar el length
             {
-                console.log(jsonObj[i].nombre);
+                var fila = "<tr><td>"+jsonObj[i].nombre;//"<tr><td>"
+                    tbody.innerHTML=tbody.innerHTML+fila;
+                //console.log(jsonObj[i].nombre);
             }
         }
     </script>
