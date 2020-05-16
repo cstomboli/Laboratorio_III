@@ -100,28 +100,17 @@ var http = new XMLHttpRequest;
             }
             function callback(){
                 if(http.readyState == 4 && http.status==200){
-                    console.log(http.response);
                     if(http.response=="true")
                     {
                         container.hidden=true;
                         var tabla = document.getElementById("tabla");
                         var inputUser = document.getElementById("user").value;
-                    var inputPassword = document.getElementById("password").value;
+                        var inputPassword = document.getElementById("password").value;
                         tabla.innerHTML += "<tr>"+"<td>"+inputUser+"</td><td>"+inputPassword+"</td><td><a href=''> Borrar</td>"+"</tr>";   
-           
-
-                        console.log("mi funcion");
-                        agregar;
                     }
                 }
             } 
-            function agregar(){
-                console.log("agregar");
-                container.hidden=true;
-                var tabla = document.getElementById("tabla");
-                tabla.innerHTML += "<tr>"+"<td>"+inputUser+"</td><td>"+inputPassword+"</td><td><a href=''> Borrar</td>"+"</tr>";   
-           
-            }
+            
             
 
 
