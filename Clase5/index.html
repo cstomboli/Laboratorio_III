@@ -22,39 +22,9 @@
             console.log(array2[i].nombre);
         }*/
 
-        var http = new XMLHttpRequest();
-        window.onload= function(){
-            http.onreadystatechange= callback;
-            http.open("GET", "http://localhost:3000/personas", true);
-            http.send();
-        }
-        function callback(){
-            //alert("llego");
-            if(http.readyState===4)
-            {
-                if( http.status===200)
-                {
-                    armarGrilla(JSON.parse(http.responseText));
-                }
-                else{
-                    console.log("error");
-                }
-            }
-        } 
-        function armarGrilla(jsonObj){
-            var tbody=document.getElementById("body");
-            for (var i=0; i<jsonObj.length; i++) //no va a tomar el length
-            {
-                var fila = "<tr><td>"+jsonObj[i].nombre;//"<tr><td>"
-                    tbody.innerHTML=tbody.innerHTML+fila;
-                //console.log(jsonObj[i].nombre);
-            }
-        }
     </script>
     <link rel="stylesheet" href="hoja.css"/>
 </head>
-
-
 <body>
     <div class="mostrar">
         <input type="button" class= "button" id="btnMostrar" value="Mostrar"> 
@@ -86,35 +56,12 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Accion</th>
+                    <th>Fecha</th>
+                    <th>Telefono</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Luis</td>
-                    <td>Rodrigez</td>
-                    <td> <a href= "">borrar</a> </td>
-                </tr>
-                <tr>
-                    <td>Bianca</td>
-                    <td>Gentineta</td>
-                    <td> <a href= "">borrar</a> </td>
-                </tr>
-                    <tr>
-                    <td>Lucrecia</td>
-                    <td>Pandolfi</td>
-                    <td> <a href= "">borrar</a> </td>
-                </tr>
-                <tr>
-                    <td>Guillermo</td>
-                    <td>Raboni</td>
-                    <td> <a href= "">borrar</a> </td>
-                </tr>
-                <tr>
-                    <td>Guillermo</td>
-                    <td>Raboni</td>
-                    <td> <a href= "">borrar</a> </td>
-                </tr>
+                
             </tbody>
         </table>
     </div>    
