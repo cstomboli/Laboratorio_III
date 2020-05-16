@@ -103,6 +103,13 @@ var http = new XMLHttpRequest;
                     console.log(http.response);
                     if(http.response=="true")
                     {
+                        container.hidden=true;
+                        var tabla = document.getElementById("tabla");
+                        var inputUser = document.getElementById("user").value;
+                    var inputPassword = document.getElementById("password").value;
+                        tabla.innerHTML += "<tr>"+"<td>"+inputUser+"</td><td>"+inputPassword+"</td><td><a href=''> Borrar</td>"+"</tr>";   
+           
+
                         console.log("mi funcion");
                         agregar;
                     }
