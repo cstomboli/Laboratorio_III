@@ -40,3 +40,13 @@ var http = new XMLHttpRequest;
                // console.log(jsonObj[i].nombre);
             }
         }
+
+        function nuevaPersona(){
+
+            
+            var fila = "<tr><td>"+jsonObj[i].nombre+"</td>"+
+                "<td>"+jsonObj[i].apellido+"</td>"+
+                "<td>"+jsonObj[i].fecha+"</td>"+
+                "<td>"+jsonObj[i].telefono+"</td>"+"</tr>"
+                tabla.innerHTML=tabla.innerHTML+fila; 
+        }

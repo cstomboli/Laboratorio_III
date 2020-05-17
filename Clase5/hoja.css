@@ -2,20 +2,18 @@
     background-color: rgb(221, 221, 221);    
     width: 50%;
     flex-wrap: wrap; 
-    position: fixed;  
-    top:25%; 
-    left:25%; /*25% este, estaria en el medio*/
-    right:25%;
-    /* 
-    animartion-name: aparecer;
-    animation-duration: 20s; 
-    box-shadow: 19px 10px 20px 0px rgb; le da sombra*/
-    bottom: 25%;
+    position: static;  
+    top:12%; 
+    margin-left: 500px;
+    animation-name: aparecer;
+    animation-duration: 5s; 
+    box-shadow: 19px 10px 20px 0px red; /*le da sombra*/
+    bottom: 25%; /*Si saco esto cago todo */
 }
-/* @keyframes aparecer{
+ @keyframes aparecer{
     from {opacity: 0;}
     to {opacity:1}
-}*/
+}
 .bCerrar{ /*este es el div del boton*/
     background-color: red;
     padding: 5px 5px;
@@ -60,7 +58,7 @@
     font-size: 35px;
 }
 #tabla {
-    z-index: -1; /*Esto hace que la tabla aparezca por detras*/
+   /* z-index: -1; /*Esto hace que la tabla aparezca por detras*/
     position: relative; 
     width: 100%;    
     border-collapse: collapse;
