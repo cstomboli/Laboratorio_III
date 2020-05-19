@@ -1,0 +1,8 @@
+El modificar:
+una vez q tengo los datos, en el pop up, se lo paso como post al metodo editar.
+modifico los datos de la fila
+contra el tr que tiene, le saco los child, 
+doble click, te guardas una referencia a ese tr, le removes, todos los hijso, y le cargas los td.
+
+Date:
+objeto tipo date, cuando tenga el date, poder parsearlo

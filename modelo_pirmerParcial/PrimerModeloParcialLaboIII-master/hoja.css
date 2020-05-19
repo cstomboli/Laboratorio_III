@@ -1,0 +1,83 @@
+#container{
+    background-color: rgb(221, 221, 221);    
+    width: 50%;
+    flex-wrap: wrap; 
+    position: static;  
+    top:12%; 
+    margin-left: 500px;
+    animation-name: aparecer;
+    animation-duration: 5s; 
+    box-shadow: 19px 10px 20px 0px red; /*le da sombra*/
+    bottom: 25%; /*Si saco esto cago todo */
+}
+ @keyframes aparecer{
+    from {opacity: 0;}
+    to {opacity:1}
+}
+.bCerrar{ /*este es el div del boton*/
+    background-color: red;
+    padding: 5px 5px;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer; /* cuando paso el mouse por encima*/
+    /*
+    flex-direction: row;
+    align-items: flex-end; /*No hace nada*/
+}
+#lblDatos{
+    margin: 8px;    
+}
+.button{
+    margin: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: green;
+    padding: 10px 20px;
+    text-align: center;
+}
+.button:hover{
+    background-color:greenyellow;
+}
+.recuadro{
+    width:100%;
+    padding: 12px 20px;
+    margin:8px; 
+    box-sizing: border-box; /*Crecio demasiado con los 2 de arriba, lo acomoda*/
+    border: solid 1px #dddddd;
+}
+.classError{
+    width:100%;
+    padding: 12px 20px;
+    margin:8px;
+    box-sizing: border-box;
+    border-color: red;
+}
+#txtLista{
+    margin:auto;
+    font-weight: bold;
+    font-size: 35px;
+}
+#tabla {
+   /* z-index: -1; /*Esto hace que la tabla aparezca por detras*/
+    position: relative; 
+    width: 100%;    
+    border-collapse: collapse;
+    font-weight: normal;
+    font-size: 25px;
+}
+
+#tabla th{
+    text-align: left;
+    color: white;
+    background-color: rgb(21, 117, 124);
+}
+#tabla tr:nth-child(even){
+    background-color:#ddd;
+}
+#tabla th, td{
+    border:1px solid #ddd;
+    padding: 10px;
+    padding-top: 8px;    
+    padding-bottom: 8px;
+
+}
