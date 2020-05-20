@@ -1,0 +1,4 @@
+prevent default
+local storage
+
+Para la clase despues del parcial

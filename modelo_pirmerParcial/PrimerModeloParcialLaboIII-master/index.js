@@ -239,7 +239,7 @@ app.post("/nueva",function(req,res){
        
 			
 			var data = {"id":id,"nombre":req.body.nombre,"apellido":req.body.apellido,"fecha":req.body.fecha,"sexo":req.body.sexo};
-      alert("ENtro",data);
+      //console.log(id); //no muestra
       personas.push(data);
                 res.send(data);    
             
