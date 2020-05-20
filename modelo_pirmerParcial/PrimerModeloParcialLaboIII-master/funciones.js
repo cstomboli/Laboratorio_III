@@ -1,5 +1,6 @@
 var http = new XMLHttpRequest; 
-
+var idObtenido;
+var padre;
 window.onload = function()
 {
     var mostrar= document.getElementById("btnMostrar"); 
@@ -56,26 +57,41 @@ window.onload = function()
         var editar = document.getElementById("btnEditar");
         editar.onclick=function()
         {
-            var nombre = document.getElementById("user").value;
-            var apellido = document.getElementById("password").value;
-            var fecha = document.getElementById("fecha").value;
-            if(document.getElementById("femenino").checked = true)
+            peticionPost("POST","http://localhost:3000/editar",true);
+           // alert(idObtenido);
+            
+            padre=padre.childNodes;
+                console.log(padre);
+            hijo= padre.childNodes;
+            console.log(hijo);
+            hijo[0].textContent=idObtenido;
+            document.getElementById("user").value= hijo[1].textContent;
+            //document.getElementById("user").value= hijo[0].innerHTML; se puede escribir de las dos formas
+            document.getElementById("password").value=hijo[2].textContent;
+            document.getElementById("fecha").value =hijo [3].textContent;
+            if(hijo[4].textContent=='Female')
             {
-                var sexo = "Female";
+                document.getElementById("femenino").checked = true   
             }
-            else if (document.getElementById("masculino").checked = true) 
+            else if (hijo[3].textContent=='Male') 
             {
-                var sexo = "Male";
+                document.getElementById("masculino").checked = true
             } 
-            alert(nombre);
-            ///Aca tengo los datos q estan en la grilla.
-            peticionPost("POST", "http://localhost:3000/editar",true);
+
+            if(document.getElementById("femenino").checked == true)
+            {
                 
-            var fila = "<tr><td>"+nombre+"</td>"+
-                        "<td>"+apellido+"</td>"+
-                        "<td>"+fecha+"</td>"+
-                        "<td>"+sexo+"</td>"+"</tr>"
-                        tabla.innerHTML=tabla.innerHTML+fila; 
+                //var data = {nombre:document.getElementById("user").value,apellido:document.getElementById("password").value,fecha:document.getElementById("fecha").value,sexo:document.getElementById("femenino").value};
+                var fila = "<tr><td>"+document.getElementById("user").value+"</td>"+
+                "<td>"+document.getElementById("password").value+"</td>"+
+                "<td>"+document.getElementById("fecha").value+"</td>"+
+                "<td>"+document.getElementById("femenino").value+"</td>"+"</tr>"
+                tabla.innerHTML=tabla.innerHTML+fila; 
+            }
+            else if (document.getElementById("masculino").checked == true) 
+            {
+                //var data = {nombre:document.getElementById("user").value,apellido:document.getElementById("password").value,fecha:document.getElementById("fecha").value,sexo:document.getElementById("masculino").value};
+            }            
         }
 
             var eliminar = document.getElementById("btnEliminar");
@@ -101,11 +117,6 @@ window.onload = function()
                 http.open("POST", "http://localhost:3000/eliminar",true);
                 http.send(); 
 
-                    var fila = "<tr><td>"+nombre+"</td>"+
-                        "<td>"+apellido+"</td>"+
-                        "<td>"+fecha+"</td>"+
-                        "<td>"+sexo+"</td>"+"</tr>"
-                        tabla.innerHTML=tabla.innerHTML+fila; 
             }
 }
             
@@ -154,7 +165,7 @@ window.onload = function()
                     tdSxc.appendChild(text) 
                     tr.appendChild(tdSxc);
                     
-                    tr.addEventListener("onclick",clickGrilla);
+                    tr.addEventListener("dblclick",clickGrilla);
 
                     tabla.appendChild(tr);//Agrego la fila a la tabla
                 }
@@ -167,15 +178,13 @@ window.onload = function()
             http.setRequestHeader("Content-Type","application/json");
             if ((document.getElementById("femenino").checked==true) && document.getElementById("user").value.length>=3 && document.getElementById("password").value.length>=3)
             {
-                male.checked=false;
-                var data = {id:document.getElementById("id").value,nombre:document.getElementById("user").value,apellido:document.getElementById("password").value,fecha:document.getElementById("fecha").value,sexo:document.getElementById("femenino").value};
+                var data = {id:idObtenido,nombre:document.getElementById("user").value,apellido:document.getElementById("password").value,fecha:document.getElementById("fecha").value,sexo:document.getElementById("femenino").value};
             }
-            else if ((document.getElementById("masclino").checked==true)&& document.getElementById("user").value.length>=3 && document.getElementById("password").value.length>=3)
+            else if ((document.getElementById("masculino").checked==true)&& document.getElementById("user").value.length>=3 && document.getElementById("password").value.length>=3)
             {
-                female.checked=false;
-                var data = {id:document.getElementById("id").value,nombre:document.getElementById("user").value,apellido:document.getElementById("password").value,fecha:document.getElementById("fecha").value,sexo:document.getElementById("mmasculino").value};
+                var data = {id:idObtenido,nombre:document.getElementById("user").value,apellido:document.getElementById("password").value,fecha:document.getElementById("fecha").value,sexo:document.getElementById("masculino").value};
             }
-            else if((document.getElementById("femenino").checked==false)&&(document.getElementById("masclino").checked==false))
+            else if((document.getElementById("femenino").checked==false)&&(document.getElementById("masculino").checked==false))
             {
                 data= null;
             }
@@ -191,11 +200,11 @@ window.onload = function()
 
         function clickGrilla(e)
         {
-            alert("doble click");
             container.hidden=false;
             padre= e.target.parentNode;
             hijo= padre.childNodes;
-            console.log(padre);
+            //console.log(padre);
+            idObtenido=hijo[0].textContent;
             document.getElementById("user").value= hijo[1].textContent;
             //document.getElementById("user").value= hijo[0].innerHTML; se puede escribir de las dos formas
             document.getElementById("password").value=hijo[2].textContent;

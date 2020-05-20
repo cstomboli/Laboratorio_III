@@ -1,0 +1,5 @@
+<div id="loading" hidden>
+            <img src= "./carrgando.gif">
+        </div>
+
+borre el spiner
