@@ -1,42 +1,14 @@
-/*
-.unDiv{
-    background-color: black;
-    width: 100%;
-    height: 100%;
-}
 
-body{
-    
-    background-color: blue;
-}
-
-
-.unDiv {
-    min-height: 100%;
-    background-color: blue;
-}
-
-.otreDiv{
-    min-height: 100%;
-    min-height: 100%;
-    border: solid green;
-    background-color: honeydew;
-} */
-
-.container{
+#container{
     display: flex;
-    border: 5px solid red;
 }
 
-.loading{
+#loading{
     flex: initial;
     background-color: royalblue;
     min-width:  100%;
-    border: 3px solid salmon;
-}
-
-div{
-    display: block;
+    align-items: center;
+    opacity: 0.3;
 }
 
 body {
@@ -44,3 +16,58 @@ body {
     margin: 0;
     padding: 0;
 } 
+
+#loading img{
+    margin:25% 25% 25% 25%;
+}
+
+#form{
+    background-color: grey;
+    width: 50%;
+    justify-content: center;
+}
+
+.moverBtn{
+    display: flex;
+    justify-content: space-around;
+}
+
+.button{
+    color:white; 
+    cursor: pointer; 
+    margin:12px 12px 12px 12px;
+    padding: 12px;  
+}
+
+#btnEliminar{
+    background-color:red;  
+}
+
+#btnModificar{
+    background-color: green;  
+}
+
+#btnCerrar{
+    background-color: red;
+}
+
+#btnCerrar:hover , #btnEliminar:hover{
+    background-color: rgb(250, 136, 91);
+}
+
+#btnModificar:hover{
+    background-color: rgb(235, 252, 80);
+}
+
+#lblDatos, .txt{
+    margin:10px 10px 10px 10px;
+    padding: 8px;
+}
+
+#table {
+    border: 2px solid black;
+}
+
+#table td{
+    border: 2px solid black; /* ver de cambiarlo por solo borde derecho*/
+}

@@ -8,9 +8,58 @@
     <link rel="stylesheet" href="hoja.css"/>
 </head>
 <body>
-    <div class="container">    
-        <div class="loading">
-            <img="carrgando.gif">
+    <div id="container">    
+        <div id="loading">
+            <img id="imagen" src="images.gif">
+        </div>
+        <div id="form">
+            <div>
+                <input type="button" class="button" id="btnCerrar" value="X">
+            </div>
+            <div id="nombre">
+                <label id="lblDatos">Nombre</label>
+                <br>
+                <input type="text" class="txt" id="txt" placeholder="Nombre">
+            </div>
+            <div>
+                <label id="lblDatos">Apellido</label>
+                <br>
+                <input type="text" class="txt" id="txt" placeholder="Apellido">
+            </div>
+            <div>
+                <label id="lblDatos">Fecha de Nacimiento</label>
+                <br>
+                <input type="date" class="txt" id="txt" >
+            </div>
+            <div>
+                <label id="lblDatos">Sexo</label>
+                <br>
+                <input type="radio" class="txt" id="checkFe" name="sexo" value="Femenino"> Femenino
+                <br>
+                <input type="radio" class="txt" id="checkMa" name="sexo" value="Femenino"> Masculino
+
+            </div>
+
+            <div class="moverBtn">
+                <div>
+                <input type="button" class="button" id="btnEliminar" value="Eliminar">
+                </div>
+                <div id="divModificar">
+                <input type="button" class="button" id="btnModificar" value="Modificar">
+                </div>
+            </div>
+        </div>
+        <div id="divtable">
+            <h1>Lista de personas</h3>
+            <table id="table">
+                <tr>
+                    <td>Nombre</td>
+                    <td>Apellido</td>
+                    <td>Fecha de Nacimiento</td>
+                    <td>Sexo</td>                 
+                </tr>
+            </table>
+
         </div>
         
             
