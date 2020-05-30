@@ -4,18 +4,23 @@ var padre;
 var fechaActual = new Date();
 window.onload = function()
 {
-    var mostrar= document.getElementById("btnMostrar"); 
-    var container=this.document.getElementById("container");  
-    container.hidden=true;               
+    //var mostrar= document.getElementById("btnMostrar"); 
+    var container=document.getElementById("container");  
+    var loading= document.getElementById("loading");
+    container.hidden=true; 
+    loading.hidden=true;              
             
     http.onreadystatechange = callback;
     http.open("GET", "http://localhost:3000/personas",true);
-    //document.getElementById("loading").hidden=false;
     http.send(); 
+    /*
     mostrar.onclick=function()
     {            
-        container.hidden=false;        
-    }
+        container.hidden=false;
+        
+            loading.hidden=true;
+               
+    }*/
 
     var cerrar=this.document.getElementById("btnCerrar");
     cerrar.onclick=function()
@@ -49,6 +54,7 @@ window.onload = function()
             if(http.readyState == 4 && http.status==200)
             {
                 armarGrilla(JSON.parse(http.responseText)); 
+                //setTimeout((loading.hidden=true),3000); 
             }
             else
             {
@@ -99,6 +105,8 @@ window.onload = function()
             http.open(metodo, url, true);
             //http.setRequestHeader("Content-Type","application/json");                
             http.send(id);
+            container.hidden=true;
+
         }
             
             function callback()
@@ -106,7 +114,7 @@ window.onload = function()
                 if(http.readyState == 4 && http.status==200)
                 {
                     armarGrilla(JSON.parse(http.responseText)); 
-                    //document.getElementById("loading").hidden=true;   
+                    //setTimeout((loading.hidden=true),8000);   
                 }
                 else{
                     console.log("este error");
@@ -170,6 +178,8 @@ window.onload = function()
                 data= null;
             }
             http.send(JSON.stringify(data));
+            container.hidden=true;
+
         }
 
         function peticionSet(metodo,url,funcion)
@@ -177,6 +187,8 @@ window.onload = function()
             http.onreadystatechange =funcion;
             http.open(metodo, url, true);            
             http.send();
+            container.hidden=true;
+
         }
 
         function clickGrilla(e)

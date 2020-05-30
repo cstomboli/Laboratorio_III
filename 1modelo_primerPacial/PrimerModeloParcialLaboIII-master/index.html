@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <metan http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modelo de Parcial</title>
+    <script type= "text/javascript" src="JS/funciones.js">
+        /*
+        var array = ["matias", "juan"];
+        var array =[{},{}]; //array del tipo json
+        var array2 = [{"nombre": "tita", "edad": 30}, {"nombre": "Carolina", "edad": 31}];
+        var array3 = '[{"nombre": "tita", "edad": 30}, {"nombre": "Carolina", "edad": 31}]'; //este es string
+        var persona={"nombre": "Carolina", "edad": 31};
+        var persona= persona["edad"];
+        var objJson = JSON.parse(array3);
+        //alert(JSON.stringify(array3));
+       // alert(objJson);
+        /*
+        for( var i=0; i<array2.length; i++)
+        {
+            console.log(array2[i].nombre);
+        }*/
+
+    </script>
+    <link rel="stylesheet" href="CSS/hoja.css"/>
+</head>
+<body>
+    
+    
+    <div id="poderMover">
+        <div id="loading" >
+            <img src= "IMG/carrgando.gif">
+        </div>
+        <div id="container">        
+            <div class="bCerrar"> 
+                <input type="button" class="btnCerrar" id="btnCerrar" value="X">
+                <br>
+            </div>
+            <div>
+                <label id="lblDatos" for="txtNombre">Nombre </label> 
+                <br>
+                <input type="text" name="nombre" id="user" class="recuadro" placeholder="Nombre"> 
+            </div>
+            <div> 
+                <label id="lblDatos" for="txtApellido">Apellido</label>
+                <br>
+                <input type="text" name="apellido" id="password" class="recuadro" placeholder="Apellido"> 
+            </div>
+            <div> 
+                <label id="lblDatos" for="txtFecha">Fecha</label>
+                <br>
+                <input type="date" name="apellido" id="fecha" class="recuadro" max="2020-5-21"> 
+            </div>
+            <div> 
+                <label id="lblDatos" for="txtTelefono">Sexo</label>
+                <br>
+                <input type="radio" id="femenino" value="Female">Female
+                
+                <input type="radio" id="masculino" value="Male">Male
+                
+            </div>
+            <input type="button" class= "button" id="btnGuardar" value="Guardar"> 
+            <input type="button" class= "button" id="btnEliminar" value="Eliminar"> 
+            <input type="button" class= "button" id="btnEditar" value="Editar"> 
+        </div>
+        <br>
+        <label id="txtLista"> Lista de Personas</label>
+        <br>
+        <div id="tabla2">
+            <table id="tabla">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Fecha</th>
+                        <th>Sexo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>    
+</body>
+</html>

@@ -2,13 +2,16 @@
     background-color: rgb(221, 221, 221);    
     width: 50%;
     flex-wrap: wrap; 
-    position: static;  
+    position: absolute; 
+    justify-content: center; 
     top:12%; 
-    margin-left: 500px;
+    right: 25%;
+    left: 25%;
     animation-name: aparecer;
     animation-duration: 5s; 
     box-shadow: 19px 10px 20px 0px red; /*le da sombra*/
     bottom: 25%; /*Si saco esto cago todo */
+    z-index: 2;
 }
  @keyframes aparecer{
     from {opacity: 0;}
@@ -27,12 +30,13 @@
 #lblDatos{
     margin: 8px;    
 }
-.button{
-    margin: 8px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+
+.button{  
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 10px; 
     background-color: green;
-    padding: 10px 20px;
+   padding: 10px ;
     text-align: center;
 }
 .button:hover{
@@ -58,8 +62,8 @@
     font-size: 35px;
 }
 #tabla {
-   /* z-index: -1; /*Esto hace que la tabla aparezca por detras*/
-    position: relative; 
+    z-index: 1;  
+    position: absolute; 
     width: 100%;    
     border-collapse: collapse;
     font-weight: normal;
@@ -82,21 +86,26 @@
 
 }
 
-/*
-.loading {
+
+#loading {
  
+    background-color: black;
+
+    flex-direction: center;
+    bottom: 25%;
     width: 100%;
-    height: 100%; 
-    position: fixed;
-    top:25%; /*25% este y 
-left:500%; /*25% este, estaria en el medio*/
-    /*right:25%;
+   height: 100%; 
+   justify-content: center;
+    position: absolute;
+    top:25%; 
+    left:25%; /*25% este, estaria en el medio*/
+    right:25%;
     /* 
     animartion-name: aparecer;
     animation-duration: 20s; 
     box-shadow: 19px 10px 20px 0px rgb; le da sombra*/
-    /*bottom: 25%;
-} */
+    /*bottom: 25%; */
+} 
 
 
  
