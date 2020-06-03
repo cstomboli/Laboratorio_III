@@ -270,7 +270,7 @@ app.post("/editar",function(req,res){
 				}
 		
         }
-        res.send({'type': 'error'});
+        res.send({'type': 'error'}); 
     },2000);
     
 });

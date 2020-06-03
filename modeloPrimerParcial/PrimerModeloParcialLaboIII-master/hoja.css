@@ -1,8 +1,7 @@
 
-#container{
-    display: flex;
-}
-
+ .div{
+    display: block;
+}  
 #loading{
     flex: initial;
     background-color: royalblue;
@@ -22,14 +21,39 @@ body {
 }
 
 #form{
-    background-color: grey;
     width: 50%;
-    justify-content: center;
+    left: 25%;
+    top: 10%;
+    position: fixed;
+    /*flex-wrap: wrap;*/
+    background-color: rgb(221, 221, 221);    
+    z-index: 2;
+}
+
+.txt{
+    width:80%;
+    padding: 12px 20px;
+    margin:8px; 
+    box-sizing: border-box; /*Crecio demasiado con los 2 de arriba, lo acomoda*/
+    border: solid 1px #dddddd;
+}
+
+.txtSex{
+    padding: 12px 20px;
+    margin:8px; 
 }
 
 .moverBtn{
     display: flex;
     justify-content: space-around;
+}
+
+.classError{
+    width:80%;
+    padding: 12px 20px;
+    margin:8px; 
+    box-sizing: border-box;
+    border: solid 3px red;
 }
 
 .button{
@@ -43,7 +67,7 @@ body {
     background-color:red;  
 }
 
-#btnModificar{
+#btnModificar, #btnAgregar{
     background-color: green;  
 }
 
@@ -65,9 +89,30 @@ body {
 }
 
 #table {
-    border: 2px solid black;
+    position: relative;
+    z-index: 1; 
+    width: 100%;
+    border-collapse: collapse;
+    font-weight: normal;
+    font-size: 25px;
+
+    /*border: 2px solid black;*/
 }
 
-#table td{
-    border: 2px solid black; /* ver de cambiarlo por solo borde derecho*/
+#table th,td{
+    border: 1px solid #ddd; /* ver de cambiarlo por solo borde derecho*/
+    padding: 8px;
+    padding-top: 8px;    
+    padding-bottom: 8px;
+    text-align: center; /* Si no pongo esto, queda alineado a la izq*/
+}
+
+#table tr:nth-child(even){
+    background-color:#ddd;
+}
+
+#table tbody{
+    text-align: center;
+    color: white;
+    background-color: rgb(21, 117, 124);
 }
