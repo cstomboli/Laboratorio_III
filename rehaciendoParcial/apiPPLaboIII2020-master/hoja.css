@@ -5,8 +5,13 @@
     flex: initial;
     background-color: royalblue;
     min-width:  100%;
-    align-items: center;
+    min-height: 100%;
+    /*align-items: center;*/
     opacity: 0.3;
+    position: fixed;
+    z-index: 2;
+
+
 }
 
 body {
@@ -15,9 +20,10 @@ body {
     padding: 0;
 } 
 
+
 #loading img{
-    margin:25% 25% 25% 25%;
-}
+    margin-left:25%;
+} 
 
 #form{
     width: 50%;

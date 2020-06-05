@@ -11,6 +11,8 @@ window.onload = function()
     loading = document.getElementById("loading");
     contenedor = document.getElementById("form");
     contenedor.hidden=true;
+    //loading.hidden=true;
+
     peticion('GET', "http://localhost:3000/materias", callback);
 
     var btnCerrar = document.getElementById("btnCerrar");
@@ -77,7 +79,6 @@ function peticion(metodo, url, funcion)
             }
 
             http.send(JSON.stringify(data)); 
-
         }
     }
 }
@@ -221,8 +222,8 @@ function chequearDatos()
     var retorno =false;
     if(nombre.length>6) 
     {
-        //retorno=true;
-        
+        retorno=true;
+        /*
             var fechaId = document.getElementById("fecha").value;
             console.log("fehca id"+fechaId);
             fechaPar= Date(fechaPar);
@@ -240,7 +241,7 @@ function chequearDatos()
                 alert("La fecha debe ser mayor a la actual");
                 document.getElementById("fecha").className ="classError";
 
-            } 
+            }  */
     }
     else
     {
