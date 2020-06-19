@@ -162,6 +162,7 @@ function callbackNueva()
 {
     if(http.readyState == 4 && http.status == 200)
     {
+        //cargarGrilla(JSON.parse(http.responseText)); //estaria bueno para reutiliza codigo.
         agregar(JSON.parse(http.responseText));
         contenedor.hidden=true;
         loading.hidden=true; 
@@ -240,15 +241,20 @@ function chequearDatos()
 {
     var nombre= document.getElementById("nombre").value;
     var apellido= document.getElementById("apellido").value;
-    var fecha = document.getElementById("fecha").value;
+    var fecha = document.getElementById("fecha");
     var retorno =false;
     if(nombre.length>3) 
     {
         if(apellido.length>3)
-        {            
+        {  
+            //retorno=true;      
+                
             var fechaId = document.getElementById("fecha").value;
             fecha.max = fechaActual.getFullYear()+"-"+(fechaActual.getMonth()+1)+"-"+fechaActual.getDate();
-            if(fecha.max < fechaId) //asi valida
+            console.log("fecha maz"+fecha.max);
+            console.log("fecha inreg"+fechaId);
+
+            if(fecha.max > fechaId) //asi valida
             {
                 retorno=true;
             }

@@ -222,17 +222,14 @@ function chequearDatos()
     var retorno =false;
     if(nombre.length>6) 
     {
-        retorno=true;
-        /*
+        //retorno=true;
+        
             var fechaId = document.getElementById("fecha").value;
             console.log("fehca id"+fechaId);
-            fechaPar= Date(fechaPar);
-            var fechaPar= fechaId.getFullYear()+"/"+(fechaId.getMonth()+1)+"/"+fechaId.getDate();
-            console.log("FEcha par"+fechaPar);
            fecha.min = fechaActual.getFullYear()+"/"+(fechaActual.getMonth()+1)+"/"+fechaActual.getDate();
             //fecha.min = fechaActual.getDate()+"/"+(fechaActual.getMonth()+1)+"/"+fechaActual.getFullYear();
             console.log("Fecha min"+fecha.min);
-            if(fecha.min < fechaPar) //asi valida
+            if(fecha.min < fechaPar) //no valida ninguna fecha
             {
                 retorno=true;
             }
