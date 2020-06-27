@@ -1008,8 +1008,9 @@ var datos =[
 
   // Retornar un array de objetos que solo contengan las claves name, email y age, 
   // de todos los usuarios mayores que '25'
-  lib.userOlderThan = datos.filter(item=>item.age>25).map(nombre => nombre.name + nombre.email   +     nombre.age); //email => email.email +edad => edad.age);
-    //+arrayGuardo.map(item => item.email)+arrayGuardo.map(item => item.age);
+  lib.userOlderThan = datos.filter(item=>item.age>25).map(function(item){return {Name: item.name, Email: item.email, Edad: item.age}});
+  //(nombre => nombre.name + nombre.email   +     nombre.age); //email => email.email +edad => edad.age);
+    //(function(item){return {item.name, item.email, item.age}});
 
   // Retornar un objeto que contenga solo el nombre y la edad (name y age) del usuario 
   // mas grande.
