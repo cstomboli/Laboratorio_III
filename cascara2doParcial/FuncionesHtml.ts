@@ -5,7 +5,34 @@ namespace general
     window.onload = function()
     {
         document.getElementById("btnMostrar")?.addEventListener("click",mostraRecuadro);
+        document.getElementById("btnCerrar")?.addEventListener("click",cerrarRecuadro);
+        document.getElementById("btnCerrarDos")?.addEventListener("click",cerrarRecuadro);
+        document.getElementById("txtTipo")?.addEventListener("change", cantidadPuertas);
+        document.getElementById("btnAgregar")?.addEventListener("click", agregar);
 
+    }
+
+    export function cantidadPuertas()
+    {
+        var tipoAuto:any = (<HTMLInputElement>document.getElementById("txtTipo")).value;
+
+        if(tipoAuto== "Auto")
+        {
+            (<HTMLInputElement>document.getElementById("auto")).hidden=false;
+            (<HTMLInputElement>document.getElementById("camioneta")).hidden=true;
+        }
+        else
+        {
+            (<HTMLInputElement>document.getElementById("camioneta")).hidden=false;
+            (<HTMLInputElement>document.getElementById("auto")).hidden=true;
+  
+        }      
+    }
+
+    export function cerrarRecuadro()
+    {
+        var container:any = document.getElementById("container");
+        container.hidden=true;
     }
 
     export function mostraRecuadro()
@@ -16,33 +43,42 @@ namespace general
     
     function obtenerId():number
     {
-        return listaVehiculos.length+1;
+        var id=1;
+        if(listaVehiculos.length>1)
+        {
+            id = listaVehiculos.reduce((vehiculo, vehiculoProximo)=> vehiculo.id>vehiculoProximo.id ? vehiculoProximo = vehiculo:vehiculoProximo).id +1;
+        }
+        return id;
     }
 
     export function agregar()
     {
         var marca:string= (<HTMLInputElement>document.getElementById("txtMarca")).value;
         var modelo:string=(<HTMLInputElement>document.getElementById("txtModelo")).value;
-        var precio=(<HTMLInputElement>document.getElementById("txtPrecio")).value;
+        var precio=parseInt((<HTMLInputElement>document.getElementById("txtPrecio")).value);
         var tipo= (<HTMLInputElement>document.getElementById("txtTipo")).value;
                 //logica, si es auto o camioneta
         if(tipo == "Auto" )// tipo == Auto)
         {
-            var cantidadPuertas:number;
-            var nuevoAuto:Auto = new Auto(obtenerId(), marca, modelo, parseInt(precio), cantidadPuertas);
-            listaVehiculos.push(nuevoAuto);
+            var cantidadPuertas:number = parseInt((<HTMLInputElement>document.getElementById("puertas")).value);
+            var id =obtenerId();
+            var nuevoAuto:Auto = new Auto(id, marca, modelo, precio, cantidadPuertas);
+            listaVehiculos.push(nuevoAuto);            
+            var container:any = document.getElementById("container");
+            container.hidden=true;
+            cargarGrilla((<HTMLTableElement>document.getElementById("tabla")), id, marca, modelo, precio, cantidadPuertas, false);
         }
         else 
         {
             var cuatroXcuatro:boolean = (<HTMLInputElement>document.getElementById("cuatroXcuatro")).checked;
-            var nuevaCamio:Camioneta = new Camioneta(obtenerId(), marca, modelo, parseInt(precio), cuatroXcuatro);
+            var nuevaCamio:Camioneta = new Camioneta(obtenerId(), marca, modelo, precio, cuatroXcuatro);
             listaVehiculos.push(nuevaCamio);
         }                
     }
 
     export function cargarGrilla(tabla: HTMLTableElement, id: number, marca: string,
                                 modelo: string, precio: number, cantPuert: number, 
-                                esCuatroXcuatro: string): void 
+                                esCuatroXcuatro: boolean): void 
     {
         //cuando cargo la grilla, agrego un button
         var tr= document.createElement("tr");
@@ -65,23 +101,24 @@ namespace general
 
         var tdPre= document.createElement("td");
         var txt=document.createTextNode(precio.toString());
-        tdAp.appendChild(txt);
+        tdPre.appendChild(txt);
         tr.appendChild(tdPre);
 
+        /*
         var tdPue= document.createElement("td");
         var txt=document.createTextNode(cantPuert.toString());
-        tdAp.appendChild(txt);
+        tdPue.appendChild(txt);
         tr.appendChild(tdPue);
 
         var tdCua= document.createElement("td");
         var txt=document.createTextNode(esCuatroXcuatro.toString());
-        tdAp.appendChild(txt);
+        tdCua.appendChild(txt);
         tr.appendChild(tdCua);
-
+        */
         var tdElim = document.createElement("td");
         var btnEliminar = document.createElement("button"); 
         btnEliminar.textContent="Eliminar";
-        btnEliminar.addEventListener('click', eliminar); //AB.eliminar ver esto       
+        btnEliminar.addEventListener('click',general.eliminar); //Vehiculo.eliminar ver esto       
         tdElim.appendChild(btnEliminar);              
         tr.appendChild(tdElim);
 
@@ -90,6 +127,7 @@ namespace general
 
     export function eliminar(tr: any)
     {
+        alert("aprete");
         var trAborrar = tr.target.parentNode.parentNode;
         var tdBorrado  = trAborrar.childNodes[0].innerHTML;
         var listaId = listaVehiculos.filter(Vehiculo => Vehiculo.getId()== tdBorrado);

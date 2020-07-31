@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clase 3</title>
-    <script type= "text/javascript" src="funciones.js"></script>
+    <script type= "text/javascript" src="Vehiculo.js"></script>
+    <script type= "text/javascript" src="Auto.js"></script>
+    <script type= "text/javascript" src="Camioneta.js"></script>
+    <script type= "text/javascript" src="FuncionesHtml.js"></script>
+
     <link rel="stylesheet" href="hoja.css"/> 
 </head>
 <body>
@@ -37,7 +41,7 @@
 
     <div id="poderMover">
 
-        <div id="container">        
+        <div id="container" hidden="true">        
             <div class="bCerrar"> 
                 <label id="lblAlta" for="txtNombre">Alta Vehiculo </label> 
                 <input type="button" id="btnCerrar" value="X">
@@ -66,13 +70,12 @@
                     <option value="Camioneta">Camioneta</option>
                 </select>
             </div>
-            <div id= "auto">
-                <input type="number" name="puertas" id="puertas" min="0" > 
+            <div id= "auto" > Cantidad de Puertas
+                <input type="number" name="puertas" id="puertas" min="3" max="5"> 
             </div>
-            <div id="camioneta"> Tu camioneta es Cuatro Por cuatro?
+            <div id="camioneta" hidden="true"> Tu camioneta es Cuatro Por cuatro?
                 <input type="checkbox" name="cuatroX" id="cuatroXcuatro" value="true"> Si
-                
-            </div>
+           </div>
             <div>
                 <input type="confirm" class= "button" id="btnCerrarDos" value="Cerrar"> 
                 <input type="confirm" class= "button" id="btnAgregar" value="Agregar"> 

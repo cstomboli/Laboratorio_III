@@ -2,7 +2,7 @@ namespace general
 {
     export class Vehiculo
     {
-        private id:number;
+        public id:number;
         private marca:string;
         private modelo:string;
         private precio:number;
