@@ -995,50 +995,72 @@ var datos =[
     realizar las operaciones usando los metosos map,  reduce y filter y combinaciones entre ellos
   */
 
-  function female(lista)
-  {
-    return new Promise((resolve, reject)=>{
-        var item = lista.filter(item=>item.gender==="female");
-        resolve(item);
-    });
-  }
+ function female(lista,sexo)
+ {
+   return new Promise((resolve, reject)=>{
+       //var item = lista.filter(item=>item.gender==="female");
+       if(sexo == "female")
+       {
+         resolve(name(lista.filter(item=>item.gender==="female")));
+       }
+       else //queria reutilizar pero no puedo!
+       {
+         resolve(name(lista.filter(item=>item.gender==="male")));
+       }
+   });
+ }
 
   function name(lista)
   {
     return new Promise((resolve)=>{
-      var array = lista.map(function(item){return {Name: item.name}});
-      resolve(array);
+      resolve (lista.map(function(item){return {Name: item.name}}))
+      //resolve(array);
     });
   }
 
   // Retornar una array de strings (el nombre de los usarios de sexo femenino)
   lib.femaleUsers = //function () {
 
-    female(datos).then((response)=>{     
+    female(datos,"female").then((response)=>{     
       return response;
       //y aca no la tendria q llamar
         //console.log(response);          
     });  
   //};
 
+  function male(lista,sexo)
+ {
+   return new Promise((resolve, reject)=>{       
+         resolve(email(lista.filter(item=>item.gender==="male")));       
+   });
+ }
+
+  function email(lista)
+  {
+    return new Promise((resolve)=>{
+      resolve (lista.map(function(item){return {Email: item.email}}))
+    });
+  }
+
   // Retornar una array de strings (el email de los usarios de sexo masculino)
-  lib.maleUsersEmails = function () {
-  
-  };
+  lib.maleUsersEmails = 
+    male(datos).then((response)=>{     
+      return response;
+  });
 
   function mayoresDe(lista)
   {
     return new Promise((resolve,reject)=>{
       var item = lista.filter(item=>item.age>25);//.map(function(item){return {Name: item.name, Email: item.email, Edad: item.age}});
       // aca tmb puedo hacer
-      //resolve(userNombreEmailAnio(item));
-      resolve(item);
+      resolve(userNombreEmailAnio(item));
+      //resolve(item);
     });    
   }
 
   function userNombreEmailAnio(lista)
   {
-    return new Promise((resolve)=>{
+    return new Promise((resolve, reject)=>{
       var array = lista.map(function(item){return {Name: item.name, Email: item.email, Edad: item.age}});
       resolve(array);
     });
@@ -1046,44 +1068,101 @@ var datos =[
 
   // Retornar un array de objetos que solo contengan las claves name, email y age, 
   // de todos los usuarios mayores que '25'
-  lib.userOlderThan = function () {
-    
+  lib.userOlderThan = //function () {    
     mayoresDe(datos).then((response)=>{
-      userNombreEmailAnio(response).then((response)=>{
+      //userNombreEmailAnio(response).then((response)=>{ //no me funciona una dentro de otra
       //y aca no la tendria q llamar
-        console.log(response);
-      }
-      )    
-    })
-  };
+        //console.log(response);
+        return response;
+      })    
+    //})
+  //};
 
+  function usuarioMasGrande(lista)
+  {
+    return new Promise((resolve)=>{
+      lista.reduce(function(per,user)
+      {
+        if(user.age>per.age)
+        {
+          per.name= user.name;
+          per.age = user.age;
+          resolve(per);
+          //resolve({Name: per.name, Edad: per.age}); //No modifica el formato
+        }
+        else 
+        {
+          resolve(per); 
+        }
+      },{name:"",age:0});
+    })
+  }
+  //ANDA MAL ESTA
   // Retornar un objeto que contenga solo el nombre y la edad (name y age) del usuario 
   // mas grande.
-  lib.olderUser = function () {
-  
-  };
+  lib.olderUser =     usuarioMasGrande(datos).then((response)=>{
+      return response;
+  })
+
+  function promediEdad(lista)
+  {
+    return new Promise((resolve, reject)=>{
+      resolve(datos.reduce(function(total,num){
+      return total+= num.age;    
+      },0))      
+    });
+  }
 
   // Retornar el promedio de edad de los usuarios (number)
-  lib.userAgeAverage = function () {
-  
-  };
+  lib.userAgeAverage = promediEdad(datos).then((response)=>{     
+    return response;
+});
+
+function promediEdadHombres(lista)
+  {
+    return new Promise((resolve, reject)=>{
+      resolve(datos.filter(item=>item.gender==="male").reduce(function(total,num){
+      return total+= num.age;    
+      },0))      
+    });
+  }
 
   // Retornar el promedio de edad de los usuarios hombres (number)
-  lib.userMaleAgeAverage = function () {
-    
-  
-  };
+  lib.userMaleAgeAverage = promediEdadHombres(datos).then((response)=>{     
+    return response;
+  });
+
+  function promediEdadMujeres(lista)
+  {
+    return new Promise((resolve, reject)=>{
+      resolve(datos.filter(item=>item.gender==="female").reduce(function(total,num){
+      return total+= num.age;    
+      },0))      
+    });
+  }
 
   // Retornar el promedio de edad de los usuarios mujeres (number)
-  lib.userFemaleAgeAverage = function () {
-  
-  };
+  lib.userFemaleAgeAverage = promediEdadMujeres(datos).then((response)=>{     
+    return response;
+  });
 
+  function tag(lista)
+  {
+    return new Promise((resolve, reject)=>{
+      resolve(datos.map(item => item.tags).reduce(function(
+        pre, next){
+          next.forEach(function(tag){
+            pre[tag] = 1 + pre[tag] || 1;
+          });
+          return pre;
+        },{}))      
+    });
+  }
   // Retornar un objeto  de etiquetas (tags)
   // cada property del objeto es el nombre de una etiqueta
   // y el value es la cantidad de usuarios que tienene esa etiqueta
-  lib.tagCloud = function () {
-    
-  };
+  lib.tagCloud = tag(datos).then((response)=>{     
+    return response;
+  });
   
   console.log(lib);
